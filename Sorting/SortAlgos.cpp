@@ -1,3 +1,5 @@
+// Author - Ritesh Saha
+
 // Insertion Sort.
 template <typename T>
 void insertionSort(T *array, int len, int (*compareTo)(T&, T&) ) {
@@ -19,6 +21,42 @@ void insertionSort(T *array, int len) {
 			array[i + 1] = array[i];
 		array[i + 1] = key;
 	}
+}
+
+template <typename T>
+void insertionSort(T *array, int len, int gap) {
+	for (int firstUnsortedIndex = gap; firstUnsortedIndex < len; firstUnsortedIndex += gap) {
+		T key = array[firstUnsortedIndex];
+		int i = firstUnsortedIndex - gap;
+		for (; i >= 0 && array[i] > key; i -= gap)
+			array[i + gap] = array[i];
+		array[i + gap] = key;
+	}
+}
+
+template <typename T>
+void insertionSort(T *array, int len, int (*compareTo)(T&, T&), int gap) {
+	for (int firstUnsortedIndex = gap; firstUnsortedIndex < len; firstUnsortedIndex += gap) {
+		T key = array[firstUnsortedIndex];
+		int i = firstUnsortedIndex - gap;
+		for (; i >= 0 && (*compareTo)(array[i], key) > 0; i -= gap)
+			array[i + gap] = array[i];
+		array[i + gap] = key;
+	}
+}
+
+
+// Shell Sort
+template <typename T>
+void shellSort(T *array, int len) {
+	for (int gap = len / 2; gap > 0; gap /= 2)
+		insertionSort(array, len, gap);
+}
+
+template <typename T>
+void shellSort(T *array, int len, int (*compareTo)(T&, T&) ) {
+	for (int gap = len / 2; gap > 0; gap /= 2)
+		insertionSort(array, len, compareTo, gap);
 }
 
 
