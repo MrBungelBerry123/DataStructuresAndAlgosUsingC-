@@ -1,4 +1,4 @@
-#include "./include/sorting/mergeSort.h"
+#include "../include/sorting/mergeSort.h"
 #include <string>
 #include <iostream>
 
