@@ -39,11 +39,11 @@ int main(void) {
 	students[3] = Student(30, std::string("Putin") );
 	students[4] = Student(35, std::string("Niko") );
 	
-	mergeSort(students, 5, Student::compareName);
+	algorithms::mergeSort(students, 5, Student::compareName);
 	for (int i = 0; i < 5; i++)
 		std::cout << students[i].rollNo << " " << students[i].name << std::endl; 
 	
-	mergeSort(students, 5, Student::compareRoll);
+	algorithms::mergeSort(students, 5, Student::compareRoll);
 	for (int i = 0; i < 5; i++)
 		std::cout << students[i].rollNo << " " << students[i].name << std::endl; 
 	
