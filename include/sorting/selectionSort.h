@@ -1,9 +1,15 @@
-// Author - Ritesh Saha
-
-// Selection Sort
+/*
+* Author - Ritesh Saha
+*
+* Selection Sort
+*
+* Time Complexity - O(n^2)
+* Space Complexity - O(1)
+*/
 
 namespace algorithms {
 
+	// Selection sort sub-routine for non-comparable objects.
 	template <typename T>
 	static void selectionSort(T *array, int len, int (*compareTo)(T&, T&) ) {
 		bool swap = false;
@@ -14,6 +20,7 @@ namespace algorithms {
 					min = firstUnsortedIndex;
 					swap = true;
 				}
+			// Swap only if an element smaller than array[i] is found.
 			if (swap) {
 				T temp = array[i];
 				array[i] = array[min];
@@ -23,6 +30,7 @@ namespace algorithms {
 		}
 	}
 
+	// Selection sort sub-routine for comparable objects.
 	template <typename T>
 	static void selectionSort(T *array, int len) {
 		bool swap = false;

@@ -1,9 +1,19 @@
-// Author - Ritesh Saha
-
-// Insertion Sort.
+/*
+* Author - Ritesh Saha
+*
+* Insertion Sort.
+*
+* Time Complexity - O(n^2)
+* Space Complexity - O(1)
+*/
 
 namespace algorithms {
-
+	/* 
+	* Insertion sort sub-routine which accepts a function pointer as one of the arguments.
+	* This function is meant for comparing two objects and its implementation 
+	* is provided by the user. 
+	* This sub-routine is for objects which donot override the '>' operator.
+	*/
 	template <typename T>
 	static void insertionSort(T *array, int len, int (*compareTo)(T&, T&) ) {
 		for (int firstUnsortedIndex = 1; firstUnsortedIndex < len; firstUnsortedIndex++) {
@@ -15,6 +25,10 @@ namespace algorithms {
 		}
 	}
 
+	/*
+	* Insertion ort sub-routine for comparable objects.
+	* That is, they override the '>' operator.
+	*/
 	template <typename T>
 	static void insertionSort(T *array, int len) {
 		for (int firstUnsortedIndex = 1; firstUnsortedIndex < len; firstUnsortedIndex++) {
@@ -26,6 +40,11 @@ namespace algorithms {
 		}
 	}
 
+	/*
+	* This sub-routine acts as a helper function for shellSort sub-routine.
+	* It sorts the array based on the specified gap value.
+	* This sub-routine also assumes that the objects are comparable.
+	*/
 	template <typename T>
 	static void insertionSort(T *array, int len, int gap) {
 		for (int firstUnsortedIndex = gap; firstUnsortedIndex < len; firstUnsortedIndex += gap) {
@@ -37,6 +56,9 @@ namespace algorithms {
 		}
 	}
 
+	/*
+	* A helper function for shellSort for objects which donot override the '>' operator.
+	*/
 	template <typename T>
 	static void insertionSort(T *array, int len, int (*compareTo)(T&, T&), int gap) {
 		for (int firstUnsortedIndex = gap; firstUnsortedIndex < len; firstUnsortedIndex += gap) {
