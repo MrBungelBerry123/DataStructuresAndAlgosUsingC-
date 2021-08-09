@@ -7,22 +7,36 @@
 * Space Complexity - O(1)
 */
 
-#include "insertionSort.h"
-
 namespace algorithms {
 
 	// Sub-routine for comparable objects.
 	template <typename T>
 	static void shellSort(T *array, int len) {
-		for (int gap = len / 2; gap > 0; gap /= 2)
-			insertionSort(array, len, gap);
+		for (int gap = len / 2; gap > 0; gap /= 2) {
+			// Insertion Sort
+			for (int firstUnsortedIndex = gap; firstUnsortedIndex < len; firstUnsortedIndex += gap) {
+				T key = array[firstUnsortedIndex];
+				int i = firstUnsortedIndex - gap;
+				for (; i >= 0 && array[i] > key; i -= gap)
+					array[i + gap] = array[i];
+				array[i + gap] = key;
+			}
+		}
 	}
 
 	// Sub-routine for non-comparable objects.
 	template <typename T>
 	static void shellSort(T *array, int len, int (*compareTo)(T&, T&) ) {
-		for (int gap = len / 2; gap > 0; gap /= 2)
-			insertionSort(array, len, compareTo, gap);
+		for (int gap = len / 2; gap > 0; gap /= 2) {
+			// Insertion Sort
+			for (int firstUnsortedIndex = gap; firstUnsortedIndex < len; firstUnsortedIndex += gap) {
+				T key = array[firstUnsortedIndex];
+				int i = firstUnsortedIndex - gap;
+				for (; i >= 0 && (*compareTo)(array[i], key) > 0; i -= gap)
+					array[i + gap] = array[i];
+				array[i + gap] = key;
+			}
+		}
 	}
 
 }
