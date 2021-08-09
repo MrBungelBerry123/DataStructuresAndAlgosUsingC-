@@ -80,7 +80,7 @@ Find-Max-Crossing-Subarray(A, left, mid, right)
 5 -		if sum > left_sum
 6 -			left_sum = sum
 7 -			max-left = i
-8 -	right_sum = -infinity
+8 - right_sum = -infinity
 9 - sum = 0
 10 - for j = mid + 1 upto high
 11 -	sum = sum + A[i]
