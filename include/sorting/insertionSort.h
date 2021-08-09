@@ -39,5 +39,5 @@ namespace algorithms {
 			array[i + 1] = key;
 		}
 	}
-
+	
 }
