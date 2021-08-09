@@ -40,34 +40,4 @@ namespace algorithms {
 		}
 	}
 
-	/*
-	* This sub-routine acts as a helper function for shellSort sub-routine.
-	* It sorts the array based on the specified gap value.
-	* This sub-routine also assumes that the objects are comparable.
-	*/
-	template <typename T>
-	static void insertionSort(T *array, int len, int gap) {
-		for (int firstUnsortedIndex = gap; firstUnsortedIndex < len; firstUnsortedIndex += gap) {
-			T key = array[firstUnsortedIndex];
-			int i = firstUnsortedIndex - gap;
-			for (; i >= 0 && array[i] > key; i -= gap)
-				array[i + gap] = array[i];
-			array[i + gap] = key;
-		}
-	}
-
-	/*
-	* A helper function for shellSort for objects which donot override the '>' operator.
-	*/
-	template <typename T>
-	static void insertionSort(T *array, int len, int (*compareTo)(T&, T&), int gap) {
-		for (int firstUnsortedIndex = gap; firstUnsortedIndex < len; firstUnsortedIndex += gap) {
-			T key = array[firstUnsortedIndex];
-			int i = firstUnsortedIndex - gap;
-			for (; i >= 0 && (*compareTo)(array[i], key) > 0; i -= gap)
-				array[i + gap] = array[i];
-			array[i + gap] = key;
-		}
-	}
-	
 }
