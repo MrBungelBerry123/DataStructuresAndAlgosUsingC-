@@ -39,7 +39,7 @@ namespace algorithms {
 		sum = 0;
 		for (int j = mid + 1; j <= right; j++) {
 			sum += array[j];
-			if (sum >right_sum) {
+			if (sum > right_sum) {
 				right_sum = sum;
 				max_right = j;
 			}
