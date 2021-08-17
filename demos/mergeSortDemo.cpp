@@ -1,5 +1,6 @@
 #include "../include/sorting/mergeSort.h"
 #include <iostream>
+#include <ctime>
 #define MAX_SIZE 100
 #define UPPER_BOUND 10000
 #define LOWER_BOUND 1
@@ -12,6 +13,8 @@ inline void display(int *array) {
 
 int main(void) {
 	int array[MAX_SIZE];
+
+	srand(time(0) );
 
 	// Populate the array with random integers.
 	for (int i = 0; i < MAX_SIZE; i++)

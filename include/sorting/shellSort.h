@@ -28,7 +28,7 @@ namespace algorithms {
 	template <typename T>
 	static void shellSort(T *array, int len, int (*compareTo)(T&, T&) ) {
 		for (int gap = len / 2; gap > 0; gap /= 2) {
-			// Insertion Sort 
+			// Insertion Sort
 			for (int firstUnsortedIndex = gap; firstUnsortedIndex < len; firstUnsortedIndex += gap) {
 				T key = array[firstUnsortedIndex];
 				int i = firstUnsortedIndex - gap;
@@ -38,5 +38,4 @@ namespace algorithms {
 			}
 		}
 	}
-
 }
