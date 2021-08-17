@@ -10,7 +10,7 @@
 namespace algorithms {
 	/*
 	* The merge sub-routine assumes that the two sub-arrays are already sorted
-	* and the object is comparable..
+	* and the objects are comparable..
 	*/
 	template <typename T>
 	static void merge(T *array, int startIndex, int mid, int endIndex) {
@@ -18,7 +18,7 @@ namespace algorithms {
 		if (array[mid] <= array[mid + 1])
 			return;
 		int i = startIndex, j = mid + 1, index = 0;
-		// Creating a temporary for storing the sorted sub-array.
+		// Creating a temporary array for storing the sorted sub-array.
 		T temp[endIndex - startIndex + 1]; 
 		while (i <= mid && j <= endIndex) 
 			temp[index++] = (array[i] <= array[j]) ? array[i++] : array[j++];
@@ -33,11 +33,11 @@ namespace algorithms {
 	}
 
 	/*
-	* The split sub-routine recursively partitions the array.
+	* The split sub-routine recursively partitions the array into two halves.
 	*/
 	template <typename T>
 	static void split(T *array, int startIndex, int endIndex) {
-		// Remove sub-routine from the stack if sub-array consists of one element.
+		// Return if the array contains only 1 element.
 		if (startIndex == endIndex)
 			return;
 		int mid = (startIndex + endIndex) / 2;

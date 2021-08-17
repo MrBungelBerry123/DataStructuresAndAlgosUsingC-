@@ -23,6 +23,7 @@ namespace algorithms {
 		}
 	};
 
+
 	template <typename T>
 	static tuple maxSubArray(T *array, int len) {
 		int maxSubArraySum = INT_MIN;
@@ -47,3 +48,30 @@ namespace algorithms {
 	}
 
 }
+
+/*
+* Kandane's algorithm
+
+maxSubArray(A)
+1 - sum = A[1]
+2 - for i = 2 upto A.length
+3 -		sum = sum + A[i]
+4 -		sum = Max(sum, A[i])	
+
+maxSubArray(A)
+0 -	maxSum = -infinity
+1 - max_left = max_right = left = right = 1
+2 - sum = A[1]
+3 - for i = 2 upto A.length
+4 -		sum = sum + A[i]
+5 - 	if sum >= A[i]
+6 -			right = right + 1
+7 -		if sum < A[i]
+8 -			sum = A[i]
+9 -			left = right = i
+10-		if sum > maxSum
+11- 		maxSum = sum
+12-			max_left = left
+13-			max_right = right
+14-	return(max_left, max_right, maxSum)
+*/
