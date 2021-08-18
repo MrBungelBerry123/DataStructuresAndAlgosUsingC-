@@ -22,7 +22,7 @@ namespace algorithms {
 	template <typename T>
 	static int partition(T *array, int left, int right) {
 		// Randomly choose a pivot.
-		// The probability of choosing any i belonging to the array is 1 / array.length.
+		// The probability of choosing any element belonging to the array is 1 / array.length.
 		srand(time(0) );
 		int pivot = rand() % (right - left + 1) + left;
 		Swap(array[right], array[pivot]);
@@ -56,4 +56,5 @@ namespace algorithms {
 		quickSort(array, 0, len - 1);
 		return;
 	}
+	
 }
