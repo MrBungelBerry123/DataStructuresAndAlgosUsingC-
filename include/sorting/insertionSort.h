@@ -26,7 +26,7 @@ namespace algorithms {
 	}
 
 	/*
-	* Insertion ort sub-routine for comparable objects.
+	* Insertion sort sub-routine for comparable objects.
 	* That is, they override the '>' operator.
 	*/
 	template <typename T>

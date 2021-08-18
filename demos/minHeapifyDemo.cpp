@@ -1,4 +1,4 @@
-#include "../include/sorting/insertionSort.h"
+#include "../include/heapify.h"
 #include <iostream>
 #include <ctime>
 #define MAX_SIZE 100
@@ -20,13 +20,20 @@ int main(void) {
 	for (int i = 0; i < MAX_SIZE; i++)
 		array[i] = rand() % (UPPER_BOUND - LOWER_BOUND + 1) + LOWER_BOUND;
 
-	std::cout << "Unsorted array: " << std::endl;
+	std::cout << "Unheapified array: " << std::endl;
 	display(array);
 
-	algorithms::insertionSort(array, MAX_SIZE);
+	algorithms::minHeapify(array, MAX_SIZE);
 
-	std::cout << "Sorted array: " << std::endl;
+	std::cout << "Heapified array: " << std::endl;
 	display(array);
+
+	bool isHeap = algorithms::checkMinHeapProperty(array, MAX_SIZE);
+
+	if (isHeap)
+		std::cout << "Is a heap." << std::endl;
+	else
+		std::cout << "Is not a heap." << std::endl;
 
 	return 0;
 }

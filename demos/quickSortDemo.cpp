@@ -1,6 +1,5 @@
-#include "../include/sorting/insertionSort.h"
+#include "../include/sorting/quickSort.h"
 #include <iostream>
-#include <ctime>
 #define MAX_SIZE 100
 #define UPPER_BOUND 10000
 #define LOWER_BOUND 1
@@ -23,7 +22,7 @@ int main(void) {
 	std::cout << "Unsorted array: " << std::endl;
 	display(array);
 
-	algorithms::insertionSort(array, MAX_SIZE);
+	algorithms::quickSort(array, MAX_SIZE);
 
 	std::cout << "Sorted array: " << std::endl;
 	display(array);

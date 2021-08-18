@@ -3,7 +3,7 @@
 *
 * Maximum sub-array problem.
 *
-* This algorithm is taken from Introduction to algorithms 3rd edition (CRCT) chapter 4.
+* This algorithm is taken from Introduction to algorithms, 3rd edition (CRCT) chapter 4.
 * 
 * Finding the maximum sub-array in O(nlogn) time complexity.
 * Time Complexity - O(nlogn)

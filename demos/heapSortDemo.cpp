@@ -1,4 +1,4 @@
-#include "../include/sorting/insertionSort.h"
+#include "../include/sorting/heapSort.h"
 #include <iostream>
 #include <ctime>
 #define MAX_SIZE 100
@@ -23,7 +23,7 @@ int main(void) {
 	std::cout << "Unsorted array: " << std::endl;
 	display(array);
 
-	algorithms::insertionSort(array, MAX_SIZE);
+	algorithms::heapSort(array, MAX_SIZE);
 
 	std::cout << "Sorted array: " << std::endl;
 	display(array);

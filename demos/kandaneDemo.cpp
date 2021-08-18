@@ -1,11 +1,14 @@
 #include "../include/kandane.h"
 #include <iostream>
+#include <ctime>
 #define MAX_SIZE 10
 #define UPPER_BOUND 30
 #define LOWER_BOUND -10
 
 int main(void) {
 	int array[MAX_SIZE];
+
+	srand(time(0) );
 
 	// Populate the array with random integers.
 	for (int i = 0; i < MAX_SIZE; i++)
