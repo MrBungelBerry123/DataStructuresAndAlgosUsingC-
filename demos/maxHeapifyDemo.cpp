@@ -1,4 +1,5 @@
-#include "../include/heapify.h"
+#include "../include/maxheapify.h"
+#include "../utility/checkMaxHeapProperty.h"
 #include <iostream>
 #include <ctime>
 #define MAX_SIZE 100
@@ -28,7 +29,7 @@ int main(void) {
 	std::cout << "Heapified array: " << std::endl;
 	display(array);
 
-	bool isHeap = algorithms::checkMaxHeapProperty(array, MAX_SIZE);
+	bool isHeap = utils::checkMaxHeapProperty(array, MAX_SIZE);
 
 	if (isHeap)
 		std::cout << "Is a heap." << std::endl;
