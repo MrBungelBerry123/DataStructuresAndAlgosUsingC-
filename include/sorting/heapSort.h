@@ -6,7 +6,7 @@
 * Time Complexity - O(nlogn)
 */
 
-#include "../heapify.h"
+#include "../maxheapify.h"
 #include <climits>
 
 namespace algorithms {
