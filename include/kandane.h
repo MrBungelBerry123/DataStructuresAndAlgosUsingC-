@@ -23,7 +23,6 @@ namespace algorithms {
 		}
 	};
 
-
 	template <typename T>
 	static tuple maxSubArray(T *array, int len) {
 		int maxSubArraySum = INT_MIN;

@@ -67,6 +67,7 @@ namespace algorithms {
 	static tuple findMaximumSubArray(T* array, int len) {
 		return findMaximumSubArray(array, 0, len - 1);
 	}
+	
 }
 
 /*
