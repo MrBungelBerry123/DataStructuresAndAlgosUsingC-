@@ -1,9 +1,9 @@
 /*
 * Author - Ritesh Saha
 *
-* Implementation of min heap in cpp.
+* Implementation of max heap in cpp.
 */
-#include "../minHeapify.h"
+#include "../maxHeapify.h"
 #include <stdexcept>
 
 #define DEFAULT_SIZE 50
@@ -11,7 +11,7 @@
 namespace dataStructures {
 	
 	template <typename T>
-	class MinHeap {
+	class MaxHeap {
 
 	private:
 		T *heap;
@@ -20,28 +20,28 @@ namespace dataStructures {
 	public:
 		int currentSize;
 
-		MinHeap() {
+		MaxHeap() {
 			heap = new T[DEFAULT_SIZE];
 			currentSize = 0;
 			maxSize = DEFAULT_SIZE;
 		}
 
-		MinHeap(const int size) {
+		MaxHeap(const int size) {
 			heap = new T[size];
 			currentSize = 0;
 			maxSize = size;
 		}
 
-		MinHeap(T *array, const int size) {
+		MaxHeap(T *array, const int size) {
 			heap = new T[size];
 			for (int i = 0; i < size; i++) 
 				heap[i] = array[i];
-			algorithms::minHeapify(heap, size);
+			algorithms::maxHeapify(heap, size);
 			currentSize = size;
 			maxSize = size;
 		}
 
-		~MinHeap() {
+		~MaxHeap() {
 			this->destroy();
 		}
 
@@ -92,7 +92,7 @@ namespace dataStructures {
 			T temp = this->heap[index];
 			while (index != 0) {
 				int parentIndex = getParent(index);
-				if (temp < this->heap[parentIndex]) {
+				if (temp > this->heap[parentIndex]) {
 					this->heap[index] = this->heap[parentIndex];
 					index = parentIndex;
 				}
@@ -108,11 +108,11 @@ namespace dataStructures {
 			int rightChild = getRightChild(index);
 			for (; leftChild < currentSize; leftChild = getLeftChild(index), rightChild = getRightChild(index)) {
 				T leftValue = this->heap[leftChild];
-				T rightValue = (rightChild < currentSize) ? this->heap[rightChild] : INT_MAX;
-				T minChild = (leftValue <= rightValue) ? leftChild : rightChild;
-				if (this->heap[minChild] < temp) {
-					this->heap[index] = this->heap[minChild];
-					index = minChild;
+				T rightValue = (rightChild < currentSize) ? this->heap[rightChild] : INT_MIN;
+				T maxChild = (leftValue >= rightValue) ? leftChild : rightChild;
+				if (this->heap[maxChild] > temp) {
+					this->heap[index] = this->heap[maxChild];
+					index = maxChild;
 				}
 				else break;
 			}
@@ -135,7 +135,7 @@ namespace dataStructures {
 				throw std::out_of_range("Invalid Index!");
 			T temp = this->heap[index];
 			this->heap[index] = this->heap[--currentSize];
-			if (this->heap[index] < this->heap[getParent(index)]) 
+			if (this->heap[index] > this->heap[getParent(index)]) 
 				this->heapifyAbove(index);
 			else
 				this->heapifyBelow(index);

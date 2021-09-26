@@ -17,9 +17,9 @@ namespace algorithms {
 		int leftChild = 2 * parent + 1;
 		int rightChild = 2 * parent + 2;
 		while (leftChild <= end) {
-			int leftValue = array[leftChild];
-			int rightValue = (rightChild <= end) ? array[rightChild] : INT_MIN;
-			int maxChild = (leftValue >= rightValue) ? leftChild : rightChild;
+			T leftValue = array[leftChild];
+			T rightValue = (rightChild <= end) ? array[rightChild] : INT_MIN;
+			T maxChild = (leftValue >= rightValue) ? leftChild : rightChild;
 			if (array[maxChild] > temp) {
 				array[parent] = array[maxChild];
 				parent = maxChild;
