@@ -48,7 +48,7 @@ namespace algorithms {
 	// Iterative implementation of quick select sub-routine.
 	template <typename T>
 	static int quickSelectIterative(T *array, int len, int k) {
-		k -= 1; // Recall we programmers start counting from 0 unlike non-programmers(heathens).
+		k -= 1; // Recall we programmers start counting from 0.
 		int left = 0, right = len - 1;
 		int position = partition(array, left, right);
 		while (position != k) {
