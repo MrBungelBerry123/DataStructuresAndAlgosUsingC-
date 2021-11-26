@@ -49,6 +49,10 @@ namespace dataStructures {
 			return currentSize == 0;
 		}
 
+		bool isFull() {
+			return currentSize == maxSize;
+		}
+
 		T peek() {
 			if (this->isEmpty() )
 				throw std::out_of_range("Heap is empty!");
@@ -109,7 +113,7 @@ namespace dataStructures {
 			for (; leftChild < currentSize; leftChild = getLeftChild(index), rightChild = getRightChild(index)) {
 				T leftValue = this->heap[leftChild];
 				T rightValue = (rightChild < currentSize) ? this->heap[rightChild] : INT_MAX;
-				T minChild = (leftValue <= rightValue) ? leftChild : rightChild;
+				int minChild = (leftValue <= rightValue) ? leftChild : rightChild;
 				if (this->heap[minChild] < temp) {
 					this->heap[index] = this->heap[minChild];
 					index = minChild;
