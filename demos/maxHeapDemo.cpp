@@ -37,8 +37,13 @@ int main(void) {
 
 	// Keep deleting elements until the heap throws an out of range exception.
 	try {
-		while (true)
+		int size = 10;
+		while (true) {
 			heap.pop();
+			size--;
+			arr = heap.toArray(arr, size);
+			display(arr, size);
+		}
 	}
 	catch (std::out_of_range exp) {
 		std::cout << exp.what() << std::endl;
