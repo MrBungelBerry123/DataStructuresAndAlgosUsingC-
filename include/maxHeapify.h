@@ -8,13 +8,6 @@
 namespace algorithms {
 
 	template <typename T>
-	inline void Swap(T &j, T &i) {
-		T temp = j;
-		j = i;
-		i = temp;
-	}
-
-	template <typename T>
 	static void maxHeapify(T *array, int len) {
 		for (int i = len / 2; i >= 0; i--) {
 			int leftChild = 2 * i + 1;
@@ -26,7 +19,7 @@ namespace algorithms {
 				int rightValue = (rightChild < len) ? array[rightChild] : INT_MIN;
 				int maxChild = (leftValue >= rightValue) ? leftChild : rightChild;
 				if (array[maxChild] > array[parent]) {
-					Swap(array[maxChild], array[parent]);
+					utils::Swap(array[maxChild], array[parent]);
 					parent = maxChild;
 				}
 				else break;

@@ -6,6 +6,7 @@
 * Time Complexity - O(nlogn)
 */
 
+#include "../../utility/Swap.h"
 #include "../maxheapify.h"
 #include <climits>
 
@@ -34,10 +35,10 @@ namespace algorithms {
 	template <typename T>
 	static void heapSort(T *array, int len) {
 		algorithms::maxHeapify(array ,len);
-		Swap(array[0], array[len - 1]);
+		utils::Swap(array[0], array[len - 1]);
 		for (int i = len - 2; i > 0; i--) {
 			bubbleDown(array, 0, i);
-			Swap(array[0], array[i]);
+			utils::Swap(array[0], array[i]);
 		}
 	}
 
