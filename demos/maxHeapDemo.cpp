@@ -1,4 +1,5 @@
-#include "../include/linearStructures/MaxHeap.h"
+#include "../utility/Swap.h"
+#include "../include/linearStructures/heap/MaxHeap.h"
 #include "../utility/checkMaxHeapProperty.h"
 #include <iostream>
 #include <ctime>

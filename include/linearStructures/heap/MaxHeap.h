@@ -4,7 +4,7 @@
 * Implementation of max heap in cpp.
 */
 
-#include "../maxHeapify.h"
+#include "../../maxHeapify.h"
 #include <stdexcept>
 
 #define DEFAULT_SIZE 50
