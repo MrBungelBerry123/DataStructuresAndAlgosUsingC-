@@ -4,7 +4,7 @@
 * Implementation of min heap in cpp.
 */
 
-#include "../minHeapify.h"
+#include "../../minHeapify.h"
 #include <stdexcept>
 
 #define DEFAULT_SIZE 50
