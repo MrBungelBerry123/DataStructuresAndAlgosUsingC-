@@ -1,3 +1,4 @@
+#include "../utility/Swap.h"
 #include "../include/linearStructures/MinHeap.h"
 #include "../utility/checkMinHeapProperty.h"
 #include <iostream>
