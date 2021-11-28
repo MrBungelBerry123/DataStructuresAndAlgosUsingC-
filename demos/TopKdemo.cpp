@@ -1,7 +1,7 @@
 #include <iostream>
 #include <ctime>
 #include "../utility/Swap.h"
-#include "../include/linearStructures/TopKHeap.h"
+#include "../include/linearStructures/heap/TopKHeap.h"
 
 using namespace std;
 

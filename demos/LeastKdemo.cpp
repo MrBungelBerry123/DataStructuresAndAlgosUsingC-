@@ -1,6 +1,6 @@
 #include <iostream>
 #include <ctime>
-#include "../include/linearStructures/LeastKHeap.h"
+#include "../include/linearStructures/heap/LeastKHeap.h"
 
 using namespace std;
 

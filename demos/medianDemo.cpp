@@ -1,5 +1,5 @@
 #include "../utility/Swap.h"
-#include "../include/linearStructures/MedianHeap.h"
+#include "../include/linearStructures/heap/MedianHeap.h"
 #include <iostream>
 #include <ctime>
 

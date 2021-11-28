@@ -1,5 +1,5 @@
 #include "../utility/Swap.h"
-#include "../include/linearStructures/MinHeap.h"
+#include "../include/linearStructures/heap/MinHeap.h"
 #include "../utility/checkMinHeapProperty.h"
 #include <iostream>
 #include <ctime>
