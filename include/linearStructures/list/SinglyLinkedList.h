@@ -64,7 +64,7 @@ namespace dataStructures {
 			return;
 		}
 
-		std::pair<Node*, Node*> search_(T key) {
+		std::pair<Node*, Node*> _search(T key) {
 			Node *trev = root->next;
 			Node *prev = root;
 			for (; trev != NULL; prev = trev, trev = trev->next)
@@ -74,7 +74,7 @@ namespace dataStructures {
 		}
 
 		/*
-		Node* remove_() {
+		Node* _remove() {
 			if (this->isEmpty() )
 				return NULL;
 			Node *temp = root->next;
@@ -84,19 +84,19 @@ namespace dataStructures {
 		*/
 
 		// Recursively reverse the list.
-		void reverse_(Node *prevNode, Node *curNode) {
+		void _reverse(Node *prevNode, Node *curNode) {
 			if (curNode == NULL) {
 				root->next = prevNode;
 				return;
 			}
-			reverse_(curNode, curNode->next);
+			_reverse(curNode, curNode->next);
 			curNode->next = prevNode;
 			return;
 		}
 
 
 		// Iteratively reverse the list.
-		void reverse_() {
+		void _reverse() {
 			SinglyLinkedList<std::pair<Node*, Node*> > explicitStack;
 			explicitStack.insertFront(std::make_pair((Node*)NULL, root->next) );
 			for (Node *trev = root->next; trev != NULL; trev = trev->next)
@@ -151,6 +151,8 @@ namespace dataStructures {
 		}
 
 		T removeFront() {
+			if (this->isEmpty() )
+				throw std::out_of_range("Empty list!");
 			Node *node = root->next;
 			T temp = node->data;
 			root->next = node->next;
@@ -162,9 +164,9 @@ namespace dataStructures {
 		T removeRear() {
 			Node *trev = root->next;
 			Node *prev = root;
-			for (; trev->next != NULL; prev = trev, trev = trev->next);
 			if (trev == NULL) 
 				throw std::out_of_range("Empty list!");
+			for (; trev->next != NULL; prev = trev, trev = trev->next);
 			T temp = trev->data;
 			delete trev;
 			prev->next = NULL;
@@ -173,7 +175,7 @@ namespace dataStructures {
 		}
 
 		T remove(T key) {
-			std::pair<Node*, Node*> target = search_(key);
+			std::pair<Node*, Node*> target = _search(key);
 			if (target.second == NULL)
 				throw std::out_of_range("Element does not exist!");
 			target.first->next = target.second->next;
@@ -183,7 +185,7 @@ namespace dataStructures {
 		}
 
 		void reverse() {
-			this->reverse_();
+			this->_reverse();
 		}
 
 	};
