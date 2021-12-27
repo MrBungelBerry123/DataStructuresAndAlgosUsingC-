@@ -144,7 +144,10 @@ namespace dataStructures {
 		}
 
 		void insertFront(T key) {
-			root->right = new Node(root, root->right, key);
+			if (root->right == NULL)
+				root->right = new Node(root, key);
+			else
+				root->right = new Node(root, root->right, key);
 			if (length == 0)
 				rear = root->right;
 			length += 1;
@@ -207,7 +210,7 @@ namespace dataStructures {
 			if (this->length <= 1)
 				return;
 			this->rear = root->right;
-			this->_reverse(root->right, root->right->right);
+			this->_reverse();
 			return;
 		}
 

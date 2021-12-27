@@ -23,7 +23,7 @@ int main(void) {
 	for (int i = 0; i < MAX_SIZE; i++) {
 		int temp = rand() % (UPPER_BOUND - LOWER_BOUND + 1) + LOWER_BOUND;
 		cout << temp << " ";
-		list.insertRear(temp);
+		list.insertFront(temp);
 	}
 	cout << endl;
 
@@ -36,7 +36,7 @@ int main(void) {
 	delete [] arr;
 	
 	while (!list.isEmpty() ) 
-		cout << list.removeRear() << " ";
+		cout << list.removeFront() << " ";
 	cout << endl;
 
 
