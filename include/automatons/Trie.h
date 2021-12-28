@@ -62,9 +62,11 @@ namespace dataStructures {
 			explicitStack.push(root);
 			while (!explicitStack.isEmpty() ) {
 				temp = explicitStack.pop();
-				for (int i = 0; i < ROUTES; i++)
-					if (temp->map[i] != NULL)
-						explicitStack.push(temp->map[i]);
+				for (int i = 0; i < ROUTES; i++) {
+					if (temp->map[i] == NULL)
+						continue;
+					explicitStack.push(temp->map[i]);
+				}
 				delete temp;
 			}
 			return;
