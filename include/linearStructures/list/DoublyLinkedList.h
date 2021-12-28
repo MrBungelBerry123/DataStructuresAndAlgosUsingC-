@@ -70,7 +70,7 @@ namespace dataStructures {
 			return;
 		}
 
-		// Recursively delete the list.
+		/* Recursively delete the list.
 		void destroy(Node *trev) {
 			if (trev == NULL)
 				return;
@@ -79,6 +79,7 @@ namespace dataStructures {
 			delete(trev);
 			return;
 		}
+		*/
 
 		// Iteratively reverse the list.
 		void _reverse() {
@@ -97,7 +98,7 @@ namespace dataStructures {
 			return;
 		}
 
-		// Recursively reverse the list.
+		/* Recursively reverse the list.
 		void _reverse(Node *prevNode, Node *curNode) {
 			if (curNode == NULL) {
 				root->right = prevNode;
@@ -110,6 +111,7 @@ namespace dataStructures {
 			prevNode->right = NULL;
 			return;
 		}
+		*/
 
 		Node* _search(T key) {
 			Node *trev = root->right;
