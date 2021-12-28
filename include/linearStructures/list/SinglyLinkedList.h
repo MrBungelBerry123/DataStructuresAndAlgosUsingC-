@@ -64,6 +64,9 @@ namespace dataStructures {
 			return;
 		}
 
+		/*
+		Return the node you are looking for and the node pointing at it.
+		*/
 		std::pair<Node*, Node*> _search(T key) {
 			Node *trev = root->next;
 			Node *prev = root;
@@ -182,6 +185,16 @@ namespace dataStructures {
 			T temp = target.second->data;
 			delete target.second;
 			return temp;
+		}
+
+		T lookUp(int index) {
+			if (index < 0 || index > this->length)
+				throw std::out_of_range("Index out of bounds!");
+			Node *trev = root->next;
+			for (; trev != NULL && index != 0; trev = trev->next, index--);
+			if (trev == NULL)
+				throw std::out_of_range("Empty list!");
+			return trev->data;
 		}
 
 		void reverse() {
