@@ -35,6 +35,10 @@ int main(void) {
 	display(arr, list.size() );
 	delete [] arr;
 	
+	for (int i = 0, n = list.size(); i < n; i++)
+		cout << list.lookUp(i) << " ";
+	cout << endl;
+
 	while (!list.isEmpty() ) 
 		cout << list.removeFront() << " ";
 	cout << endl;

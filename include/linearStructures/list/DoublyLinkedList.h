@@ -206,6 +206,16 @@ namespace dataStructures {
 			return data;
 		}
 
+		T lookUp(int index) {
+			if (index < 0 || index > this->length)
+				throw std::out_of_range("Index out of bounds!");
+			Node *trev = root->right;
+			for (; trev != NULL & index != 0; trev = trev->right, index--);
+			if (trev == NULL)
+				throw std::out_of_range("List is empty!");
+			return trev->data;
+		}
+
 		void reverse() {
 			if (this->length <= 1)
 				return;
