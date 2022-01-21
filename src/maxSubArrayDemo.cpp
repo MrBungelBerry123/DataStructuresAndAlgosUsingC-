@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "maxContiguousSubArray.h"
 #include <iostream>
 #include <ctime>
@@ -26,4 +27,34 @@ int main(void) {
 		std::cout << array[i] << " ";
 	std::cout << std::endl;
 	return 0;
+=======
+#include "maxContiguousSubArray.h"
+#include <iostream>
+#include <ctime>
+#define MAX_SIZE 10
+#define UPPER_BOUND 30
+#define LOWER_BOUND -10
+
+
+int main(void) {
+	int array[MAX_SIZE];
+
+	srand(time(0) );
+
+	// Populate the array with random integers.
+	for (int i = 0; i < MAX_SIZE; i++)
+		array[i] = rand() % (UPPER_BOUND - LOWER_BOUND + 1) + LOWER_BOUND;
+
+	// Original array.
+	for (int i = 0; i < MAX_SIZE; i++)
+		std::cout << array[i] << " ";
+	std::cout << std::endl;
+
+	algo::tuple maxSubArray = algo::findMaximumSubArray(array, MAX_SIZE);
+	std::cout << maxSubArray.sum << std::endl;
+	for (int i = maxSubArray.left; i <= maxSubArray.right; i++)
+		std::cout << array[i] << " ";
+	std::cout << std::endl;
+	return 0;
+>>>>>>> a04fdc2f4df5be282c51d9e64b2d665987a68025
 }
