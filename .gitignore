@@ -1,9 +1,2 @@
-<<<<<<< HEAD
-*.exe
-*.out
-*.txt
-./executables/*
+./bin/*
 ./logs/*
-=======
-./logs/*
->>>>>>> dd85741 ([ Initial commit ])

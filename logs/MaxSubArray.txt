@@ -1,0 +1,90 @@
+Maximum sub-array problem:
+Input - An array of n integers.
+Output - Indexes i and j such that i < j and A[j] - A[i] is maximum.
+
+// Iterative Approach.
+
+MaxSubArray(A):
+1 - maxSubArraySum = -infinity
+2 -	for i = 1 upto A.length
+3 -		runningSum = 0
+4 -		for j = i upto A.length
+5 -		runningSum = runningSum + A[j]
+6 - 	maxSubArraySum = Max(runningSum, maxSubArraySum)
+7 -	return maxSubArraySum
+
+Time Complexity - O(n ^ 2)
+Space Complexity - O(1)
+
+// Divide and conquere approach.
+Find-Max-Crossing-Subarray(A, left, mid, right)
+1 - left_sum = -infinity
+2 - sum = 0
+3 - for i = mid downto left
+4 -		sum = sum + A[i]
+5 -		if sum > left_sum
+6 -			left_sum = sum
+7 -			max-left = i
+8 -	right_sum = -infinity
+9 - sum = 0
+10 - for j = mid + 1 upto high
+11 -	sum = sum + A[i]
+12 -    if sum > right_sum
+13 -		right_sum = sum
+14 -		max-right = j
+13 -return(max-left, max-right, left_sum + right_sum)
+
+
+Find-Maximum-Subarray(A, left, right)
+1 - if left == right
+2 -		return(left, right, A[left])
+3 -	else mid = (left + right) / 2
+4 -		(left-low, left-high, left-sum) = Find-Maximum-Subarray(A, left, mid)
+5 -		(right-low, right-high, right-sum) = Find-Maximum-Subarray(A, mid + 1, right)
+6 -		(cross-left, cross-right-cross-sum) = Find-Max-Crossing-Subarray(A, left, mid, right)
+7 - 	if left-sum >= right-sum and left-sum >= cross-sum
+8 -			return (left-low, left-high, left-sum)
+9 -		else right-sum > left-sum and right-sum > cross-sum
+10 -		return (right-low, right-high, right-sum)
+11 -	return (cross-left, cross-high, cross-sum)
+
+
+// Kandane's algorithm
+
+maxSubArray(A)
+1 - sum = A[1]
+2 - for i = 2 upto A.length
+3 -		sum = sum + A[i]
+4 -		sum = Max(sum, A[i])	
+
+maxSubArray(A)
+0 -	maxSum = -infinity
+1 - max_left = max_right = left = right = 1
+2 - sum = A[1]
+3 - for i = 2 upto A.length
+4 -		sum = sum + A[i]
+5 - 	if sum >= A[i]
+6 -			right = right + 1
+7 -		if sum < A[i]
+8 -			sum = A[i]
+9 -			left = right = i
+10-		if sum > maxSum
+11- 		maxSum = sum
+12-			max_left = left
+13-			max_right = right
+14-	return(max_left, max_right, maxSum)		
+
+// Divide and Conquere Approach to find the sum of an array.
+
+Sum(A, left, right)
+1 - if left == right
+2 -     return A[left]
+3 -	if left == right - 1
+4 -     return A[left] + A[right]
+5 - mid = (left + right) / 2
+6 - int leftSum = Sum(A, left, mid)
+7 - int rightSum = Sum(A, mid + 1, right)
+8 - return leftSum + rightSum
+
+O(n) 
+O(log n)
