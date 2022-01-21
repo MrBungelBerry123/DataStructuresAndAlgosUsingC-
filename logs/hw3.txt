@@ -1,0 +1,19 @@
+Sorting problem:
+Input: A sequence of n numbers.{a1, a2, ..., an}
+Output: A permutation {a1', a2', ..., an'} such that a1' <= a2' <= ... <= an'.
+
+Assumption about the data:
+The values are within 1 and k(inclusive).
+
+Pseudocode:
+
+Partition(A, pivot):
+1 - i = left - 1
+2 -	for j = 0 upto A.length
+3 -		if A[j] <= pivot
+4 -			i = i + 1
+5 - 		Swap(A[j], A[i])
+
+Sort(A)
+1 - for j = 1 upto k
+2 -     Partition(A, j)

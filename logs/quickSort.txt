@@ -1,0 +1,96 @@
+Sorting problem:
+Input: A sequence of n numbers.{a1, a2, ..., an}
+Output: A permutation {a1', a2', ..., an'} such that a1' <= a2' <= ... <= an'.
+
+
+Pseudocode:
+
+QuickSort(A, left, right):
+1 - if right - left <= 1
+2 -		return	
+3 -	position = Partition(A, left, right)
+4 -	QuickSort(A, left, position - 1)
+5 -	QuickSort(A, position + 1, right)
+6 - return
+
+Swap(A, index1, index2)
+1 - temp = A[index1]
+2 -	A[index1] = A[index2]
+3 -	A[index2] = temp
+
+Partition(A, left, right):
+1 - pivot = right
+2 - i = left - 1
+3 -	for j = left upto right - 1
+4 -		if A[j] <= A[pivot]
+5 -			i = i + 1
+6 - 		Swap(A[j], A[i])
+7 -	Swap(A[i + 1], A[pivot])           
+8 -	return i + 1
+
+// A more general partition algorithm
+Partition(A, left, right):
+1 - pivot = Random(left, right)
+2 -	i = left - 1
+3 - for j = left upto right - 1
+4 -     if j = pivot
+5 -			continue
+6 -		if A[j] <= A[pivot]
+7 -			i = i + 1
+8 - 		Swap(A[j], A[i])
+9 -	Swap(A[i + 1], A[pivot])
+10-	return i + 1
+
+Partition(A, left, right):
+1 - pivot = Random(left, right)
+2 - Swap(A[pivot], A[right])
+2 -	i = left - 1
+3 - for j = left upto right - 1
+4 -		if A[j] <= A[pivot]
+5 -			i = i + 1
+6 - 		Swap(A[j], A[i])
+7 -	Swap(A[i + 1], A[pivot])
+8 - return i + 1
+
+// Lomuto's Partition algorithm
+Let A[1..i], A[i + 1 .. j-1] and A[j .. n - 1] be three regions
+such that A[n] >= A[1..i] and A[n] < A[i+1..j-1].
+
+while j < n:
+	if A[j] <= A[n]:
+		i = i + 1
+		swap(A[j], A[i])
+		j = j + 1
+	else:
+		j = j + 1
+swap(A[i + 1], A[pivot])
+return i + 1
+
+// QuickSelect Algorithm
+
+Pseudocode:
+
+QuickSelect(A, left, right, k)
+1 - j = Partition(A, left, right)
+2 -	if j = k
+3 -		return A[j]
+4 -	if j > k
+5 -		return QuickSelect(A, left, j - 1, k)
+6 - if j < k
+7 -		return QuickSelect(A, j + 1, right, k - j) // k - j is not necessary in the actual impementation.
+
+
+// HW
+def testIfPartitioned(a, k):
+    # TODO : test if all elements at indices < k are all <= a[k]
+    #         and all elements at indices > k are all > a[k]
+    # return TRUE if the array is correctly partitioned around a[k] and return FALSE otherwise
+    assert 0 <= k < len(a)
+    # your code here
+    for j in range(0, k): # Check the first region.
+        if a[j] > a[k]:
+            return False
+    for j in range(k + 1, len(a)): # Check the second region.
+        if a[j] <= a[k]:
+            return False
+    return True
