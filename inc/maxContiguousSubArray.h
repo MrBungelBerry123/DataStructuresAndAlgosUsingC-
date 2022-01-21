@@ -9,9 +9,11 @@
 * Time Complexity - O(nlogn)
 */
 
+#ifndef _MAX_CONTIGOUS_SUB_ARRAY_
+#define _MAX_CONTIGOUS_SUB_ARRAY_
 #include <climits>
 
-namespace algorithms {
+namespace algo {
 
 	class tuple {
 		public:
@@ -70,6 +72,7 @@ namespace algorithms {
 	
 }
 
+#endif // _MAX_CONTIGOUS_SUB_ARRAY_
 /*
 Pseudocode:
 
@@ -77,30 +80,30 @@ Find-Max-Crossing-Subarray(A, left, mid, right)
 1 - left_sum = -infinity
 2 - sum = 0
 3 - for i = mid downto left
-4 -	sum = sum + A[i]
-5 -	if sum > left_sum
-6 -		left_sum = sum
-7 -		max-left = i
-8 -  right_sum = -infinity
-9 -  sum = 0
+4 -		sum = sum + A[i]
+5 -		if sum > left_sum
+6 -			left_sum = sum
+7 -			max-left = i
+8 -	right_sum = -infinity
+9 - sum = 0
 10 - for j = mid + 1 upto high
 11 -	sum = sum + A[i]
 12 -    if sum > right_sum
 13 -		right_sum = sum
 14 -		max-right = j
-13 - return(max-left, max-right, left_sum + right_sum)
+13 -return(max-left, max-right, left_sum + right_sum)
 
 
 Find-Maximum-Subarray(A, left, right)
 1 - if left == right
 2 -		return(left, right, A[left])
-3 - else mid = (left + right) / 2
-4 -	(left-low, left-high, left-sum) = Find-Maximum-Subarray(A, left, mid)
-5 -	(right-low, right-high, right-sum) = Find-Maximum-Subarray(A, mid + 1, right)
-6 -	(cross-left, cross-right-cross-sum) = Find-Max-Crossing-Subarray(A, left, mid, right)
+3 -	else mid = (left + right) / 2
+4 -		(left-low, left-high, left-sum) = Find-Maximum-Subarray(A, left, mid)
+5 -		(right-low, right-high, right-sum) = Find-Maximum-Subarray(A, mid + 1, right)
+6 -		(cross-left, cross-right-cross-sum) = Find-Max-Crossing-Subarray(A, left, mid, right)
 7 - 	if left-sum >= right-sum and left-sum >= cross-sum
-8 -		return (left-low, left-high, left-sum)
-9 -	else right-sum > left-sum and right-sum > cross-sum
+8 -			return (left-low, left-high, left-sum)
+9 -		else right-sum > left-sum and right-sum > cross-sum
 10 -		return (right-low, right-high, right-sum)
 11 -	return (cross-left, cross-high, cross-sum)
 
