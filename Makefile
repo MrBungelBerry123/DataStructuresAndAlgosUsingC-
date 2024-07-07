@@ -10,7 +10,7 @@ LINEAR_STRUCT = /linearStructures
 ATMT = /automatons
 SORT = /sorting
 
-PROGRAMS = minHeapifyDemo maxHeapifyDemo quickSelectDemo minHeapDemo maxHeapDemo maxContiguousDemo kadaneDemo heapSortDemo insertionSortDemo quickSortDemo mergeSortDemo test selectionSortDemo shellSortDemo TopKdemo LeastKdemo medianDemo DoublyListDemo SinglyListDemo StackDemo QueueDemo Trie
+PROGRAMS = init minHeapifyDemo maxHeapifyDemo quickSelectDemo minHeapDemo maxHeapDemo maxContiguousDemo kadaneDemo heapSortDemo insertionSortDemo quickSortDemo mergeSortDemo test selectionSortDemo shellSortDemo TopKdemo LeastKdemo medianDemo DoublyListDemo SinglyListDemo StackDemo QueueDemo Trie
 
 all: $(PROGRAMS)
 
@@ -82,5 +82,8 @@ Trie: $(INC)$(ATMT)/Trie.h $(SRC)/trieDemo.cpp
 
 .PHONY: clean
 
+init:
+	mkdir bin
+
 clean:
-	rm $(BIN)/*
+	rm -r $(BIN)
